@@ -35,7 +35,7 @@ class StatusBarCtrl {
    * @return {DOMElement}
    */
   setupTemplate () {
-    this.cancelBtnEl = dom.create('button', 'status-bar-cancel', '#@button_abort')
+    // this.cancelBtnEl = dom.create('button', 'status-bar-cancel', '#@button_abort')
     this.counterEl = dom.create('span', 'status-bar-info')
 
     this.countdown = new CountdownCtrl()
@@ -43,7 +43,7 @@ class StatusBarCtrl {
     this.countdownEl.setAttribute('class', 'status-bar-info')
 
     this.el = dom.create('div', 'status-bar ui-row', [
-      this.cancelBtnEl,
+      // this.cancelBtnEl,
       this.counterEl,
       this.countdownEl
     ])
@@ -54,9 +54,9 @@ class StatusBarCtrl {
    * Set up listeners
    */
   init () {
-    this.cancelBtnEl.addEventListener('click', () => {
-      this.cancelCallback(0)
-    })
+    // this.cancelBtnEl.addEventListener('click', () => {
+    //   this.cancelCallback(0)
+    // })
   }
 
   /* Counter mode ******************************/

@@ -42,39 +42,39 @@ const build = async () => {
     cp(join(rootFolder, 'assets'), join(buildFolder, 'assets')),
   ]);
   console.log('Localizing...');
-  // const l10n = await getL10nData();
-  // const baseDict = l10n.find((x)=>x.code==='en').data;
-  // await Promise.all(l10n.map(async (x)=>{
-  //   await mkdir(join(buildFolder, x.code));
-  //   const dict = { ...baseDict, ...x.data };
-  //   await Promise.all([
-  //     applyI18n(
-  //       join(buildFolder, 'index.html'),
-  //       join(buildFolder, `${x.code}/index.html`),
-  //       dict,
-  //     ),
-  //     applyI18n(
-  //       join(buildFolder, 'app.js'),
-  //       join(buildFolder, `${x.code}/app.js`),
-  //       dict,
-  //     ),
-  //     applyI18n(
-  //       join(buildFolder, 'manifest.json'),
-  //       join(buildFolder, `${x.code}/manifest.json`),
-  //       dict,
-  //     ),
-  //     cp(
-  //       join(buildFolder, 'app.css'),
-  //       join(buildFolder, `${x.code}/app.css`),
-  //     )
-  //   ]);
-  // }));
-  // await Promise.all([
-  //   handleRelativeCopy(join(buildFolder, 'en', 'app.css'), join(buildFolder, 'app.css')),
-  //   handleRelativeCopy(join(buildFolder, 'en', 'manifest.json'), join(buildFolder, 'manifest.json')),
-  //   handleRelativeCopy(join(buildFolder, 'en', 'index.html'), join(buildFolder, 'index.html')),
-  //   handleRelativeCopy(join(buildFolder, 'en', 'app.js'), join(buildFolder, 'app.js')),
-  // ]);
+  const l10n = await getL10nData();
+  const baseDict = l10n.find((x)=>x.code==='en').data;
+  await Promise.all(l10n.map(async (x)=>{
+    await mkdir(join(buildFolder, x.code));
+    const dict = { ...baseDict, ...x.data };
+    await Promise.all([
+      applyI18n(
+        join(buildFolder, 'index.html'),
+        join(buildFolder, `${x.code}/index.html`),
+        dict,
+      ),
+      applyI18n(
+        join(buildFolder, 'app.js'),
+        join(buildFolder, `${x.code}/app.js`),
+        dict,
+      ),
+      applyI18n(
+        join(buildFolder, 'manifest.json'),
+        join(buildFolder, `${x.code}/manifest.json`),
+        dict,
+      ),
+      cp(
+        join(buildFolder, 'app.css'),
+        join(buildFolder, `${x.code}/app.css`),
+      )
+    ]);
+  }));
+  await Promise.all([
+    handleRelativeCopy(join(buildFolder, 'en', 'app.css'), join(buildFolder, 'app.css')),
+    handleRelativeCopy(join(buildFolder, 'en', 'manifest.json'), join(buildFolder, 'manifest.json')),
+    handleRelativeCopy(join(buildFolder, 'en', 'index.html'), join(buildFolder, 'index.html')),
+    handleRelativeCopy(join(buildFolder, 'en', 'app.js'), join(buildFolder, 'app.js')),
+  ]);
   console.log('Finished successfully.');
 };
 

@@ -15,6 +15,7 @@ var myGame = new GameCtrl(() => {
   // myGame.el.style.display = 'none'
 })
 container.appendChild(myGame.el)
+   myGame.start(1, 5)
 
 // var myMenu = new MenuCtrl((type, difficulty) => {
 //   myGame.start(type, difficulty)
@@ -25,7 +26,7 @@ container.appendChild(myGame.el)
 // myMenu.init()
 // container.appendChild(myMenu.el)
 
-// myGame.el.style.display = 'none'
+myGame.el.style.display = 'block'
 
 
 window.scrollTo(0, 0)
