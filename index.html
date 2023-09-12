@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="assets/favicon.ico" />
     <meta name="theme-color" content="#000000" />
 
-    <link rel="manifest" href="#@lang_code/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
 
     <!-- Add to home screen for Safari on iOS -->
     <link rel="apple-touch-icon" href="assets/icons/ios-180x180.png" />
@@ -52,30 +52,30 @@
     />
     <meta name="msapplication-TileColor" content="#000000" />
 
-    <link rel="stylesheet" type="text/css" href="#@lang_code/app.css" />
+    <link rel="stylesheet" type="text/css" href="./app.css" />
     #@special_css
   </head>
 
   <body>
     <script type="text/javascript">
-      const isRoot = (() => {
-        const x = window.location.pathname.split('/');
-        while (true) {
-          const y = x.pop();
-          if (y === undefined) return true;
-          if (y.length === 2) return false;
-        }
-      })();
-
-      if (isRoot) {
-        const supported = { fa: true, en: true, zh: true, ru: true, fr: true };
-        for (const l of navigator.languages) {
-          if (l === 'en') break;
-          if (supported[l]) {
-            window.location = l;
-          }
-        }
-      }
+      // const isRoot = (() => {
+      //   const x = window.location.pathname.split('/');
+      //   while (true) {
+      //     const y = x.pop();
+      //     if (y === undefined) return true;
+      //     if (y.length === 2) return false;
+      //   }
+      // })();
+      //
+      // if (isRoot) {
+      //   const supported = { fa: true, en: true, zh: true, ru: true, fr: true };
+      //   for (const l of navigator.languages) {
+      //     if (l === 'en') break;
+      //     if (supported[l]) {
+      //       window.location = l;
+      //     }
+      //   }
+      // }
     </script>
     <!-- Intro -->
     <p id="app-intro" style="font-family: monospace; color: #fff">
@@ -182,7 +182,7 @@
       <![endif]-->
     </noscript>
 
-    <script src="#@lang_code/app.js"></script>
+    <script src="./app.js"></script>
     <script type="text/javascript">
       // Set up service worker
       if ('serviceWorker' in navigator) {
